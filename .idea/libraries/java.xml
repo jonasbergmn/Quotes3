@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="java">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Downloads/objectdb-2.7.4_04/objectdb-2.7.4_04/tutorials/guestbook-jee6/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/objectdb-2.7.4_04/objectdb-2.7.4_04/tutorials/guestbook-spring/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/objectdb-2.7.4_04/objectdb-2.7.4_04/tutorials/guestbook-web/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/objectdb-2.7.4_04/objectdb-2.7.4_04/tutorials/points-console/src/main/java" />
+    </SOURCES>
+  </library>
+</component>
