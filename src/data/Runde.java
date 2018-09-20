@@ -27,5 +27,14 @@ public class Runde {
             }
             }
         }
+
+        public void methode1(){
+
+        }
+
+        public void methode2(){
+
+        }
+
     }
 
