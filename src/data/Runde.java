@@ -15,13 +15,27 @@ public class Runde {
     private int z;
     private List<Antwort> antwortListe;
 
+    public String[] getAlleAntworten() {
+        return alleAntworten;
+    }
+
+    public void setAlleAntworten(String[] alleAntworten) {
+        this.alleAntworten = alleAntworten;
+    }
+
+    private String[] alleAntworten;
+
     public Runde(){
         Database d = new Database();
         this.antwortListe = d.getListAllAntworten();
     }
 
     public void getFrage(Frage f) {
-        this.frage = f;
+        this.frage = f; //set???
+    }
+
+    public String getFrageString(){
+        return this.frage.getFrage();
     }
 
 
@@ -58,14 +72,14 @@ public class Runde {
 
     public int setA4(){
         this.z = (int) (Math.random() * ((antwortListe.size() - 0) + 0) + 0);
-        while(x == z || y==z || antwortListe.get(x).getAntwort().equals(frage.getAntwort())){
+        while(x == z || y==z || antwortListe.get(z).getAntwort().equals(frage.getAntwort())){
             this.z = (int) (Math.random() * ((antwortListe.size() - 0) + 0) + 0);
         }
         return z;
     }
 
     public String getRichtigeAntwort(){
-       String a = frage.getAntwort();
+       String a = this.frage.getAntwort();
         return a;
     }
 
