@@ -27,9 +27,11 @@ public class Controller {
     public void button1Click(){
 
         rundenListe = rundenListeErstellen();
-        System.out.println("test" + rundenListe.size());
+        //System.out.println("test" + rundenListe.size());
         setButtonText();
-        counter++;
+        System.out.println(rundenListe.get(counter).getRichtigeAntwort());
+        System.out.println(rundenListe.get(counter).getRichtigeAntwort());
+        //counter++;
 
         /*Database d = new Database();
         //System.out.println(d.getSizeFrage());
@@ -154,6 +156,7 @@ public class Controller {
     public void setButtonText(){
 
         fragenLabel.setText(rundenListe.get(counter).getFrageString());
+
         antwort1.setText(rundenListe.get(counter).getAlleAntworten()[0]);
         antwort2.setText(rundenListe.get(counter).getAlleAntworten()[1]);
         antwort3.setText(rundenListe.get(counter).getAlleAntworten()[2]);
