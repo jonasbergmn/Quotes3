@@ -1,5 +1,6 @@
 package sample;
 
+import data.Antwort;
 import data.ArrayMischen;
 import data.Frage;
 import data.Runde;
@@ -8,6 +9,7 @@ import database.fillDb;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,9 @@ public class Controller {
     public Button antwort3;
     public Button antwort4;
     public Label fragenLabel;
+    public TextField textfield1;
+    public TextField textfield2;
+    public Button addQuestion;
     private int counter = 0;
     List<Runde> rundenListe;
 
@@ -31,7 +36,7 @@ public class Controller {
         setButtonText();
         System.out.println(rundenListe.get(counter).getRichtigeAntwort());
         System.out.println(rundenListe.get(counter).getRichtigeAntwort());
-        //counter++;
+        counter++;
 
         /*Database d = new Database();
         //System.out.println(d.getSizeFrage());
@@ -114,7 +119,7 @@ public class Controller {
 
 
     public void antwort1Click(ActionEvent actionEvent) {
-        if(antwort1.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
+        if(antwort1.getText().equals(rundenListe.get(counter-1).getRichtigeAntwort())){
             System.out.println("Richtig");
 
         } else {
@@ -124,7 +129,7 @@ public class Controller {
     }
 
     public void antwort2Click(ActionEvent actionEvent) {
-        if(antwort2.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
+        if(antwort2.getText().equals(rundenListe.get(counter-1).getRichtigeAntwort())){
             System.out.println("Richtig");
 
         } else {
@@ -134,7 +139,7 @@ public class Controller {
     }
 
     public void antwort3Click(ActionEvent actionEvent) {
-        if(antwort3.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
+        if(antwort3.getText().equals(rundenListe.get(counter-1).getRichtigeAntwort())){
             System.out.println("Richtig");
 
         } else {
@@ -144,7 +149,7 @@ public class Controller {
     }
 
     public void antwort4Click(ActionEvent actionEvent) {
-        if(antwort4.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
+        if(antwort4.getText().equals(rundenListe.get(counter-1).getRichtigeAntwort())){
             System.out.println("Richtig");
 
         } else {
@@ -161,6 +166,15 @@ public class Controller {
         antwort2.setText(rundenListe.get(counter).getAlleAntworten()[1]);
         antwort3.setText(rundenListe.get(counter).getAlleAntworten()[2]);
         antwort4.setText(rundenListe.get(counter).getAlleAntworten()[3]);
+    }
+
+
+    public void addQuestionClick(){
+        Database d = new Database();
+        Frage f = new Frage(textfield1.getText(), textfield2.getText());
+        d.addFrage(f);
+        Antwort a = new Antwort(f.getAntwort());
+        d.addAntwort(a);
     }
 
 }

@@ -37,4 +37,15 @@ public class fillDb {
         d.addFrage(f5);
     }
 
+
+    public void test(){
+
+        //DB befüllen mit liste von fragen und antworten
+
+    }
+
+
+
+
+
 }

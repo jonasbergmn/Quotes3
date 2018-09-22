@@ -1,5 +1,7 @@
 package data;
 
+import database.Database;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -81,4 +83,11 @@ public class Frage {
     public void setFrage(String frage) {
         this.frage = frage;
     }
+
+
+    public Frage(String frage, String antwort){
+        this.antwort = antwort;
+        this.frage = frage;
+    }
+
 }
