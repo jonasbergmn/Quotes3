@@ -36,7 +36,8 @@ public class Controller {
         setButtonText();
         System.out.println(rundenListe.get(counter).getRichtigeAntwort());
         System.out.println(rundenListe.get(counter).getRichtigeAntwort());
-        counter++;
+        //counter++;
+        button1.setDisable(true);
 
         /*Database d = new Database();
         //System.out.println(d.getSizeFrage());
@@ -119,41 +120,54 @@ public class Controller {
 
 
     public void antwort1Click(ActionEvent actionEvent) {
-        if(antwort1.getText().equals(rundenListe.get(counter-1).getRichtigeAntwort())){
+        if(antwort1.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
             System.out.println("Richtig");
+            counter++;
+            setButtonText();
 
         } else {
             System.out.println("Falsch");
-
+            counter++;
+            setButtonText();
         }
     }
 
     public void antwort2Click(ActionEvent actionEvent) {
-        if(antwort2.getText().equals(rundenListe.get(counter-1).getRichtigeAntwort())){
+        if(antwort2.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
             System.out.println("Richtig");
+            counter++;
+            setButtonText();
 
         } else {
             System.out.println("Falsch");
-
+            counter++;
+            setButtonText();
         }
     }
 
     public void antwort3Click(ActionEvent actionEvent) {
-        if(antwort3.getText().equals(rundenListe.get(counter-1).getRichtigeAntwort())){
+        if(antwort3.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
             System.out.println("Richtig");
+            counter++;
+            setButtonText();
 
         } else {
             System.out.println("Falsch");
+            counter++;
+            setButtonText();
 
         }
     }
 
     public void antwort4Click(ActionEvent actionEvent) {
-        if(antwort4.getText().equals(rundenListe.get(counter-1).getRichtigeAntwort())){
+        if(antwort4.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
             System.out.println("Richtig");
-
+            counter++;
+            setButtonText();
         } else {
             System.out.println("Falsch");
+            counter++;
+            setButtonText();
 
         }
     }
