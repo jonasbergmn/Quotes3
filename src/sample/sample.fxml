@@ -44,6 +44,7 @@
                         <TextField fx:id="textfield1" layoutX="50.0" layoutY="68.0" promptText="Frage" />
                         <TextField fx:id="textfield2" layoutX="50.0" layoutY="135.0" promptText="Antwort" />
                         <Button fx:id="addQuestion" layoutX="284.0" layoutY="99.0" mnemonicParsing="false" onAction="#addQuestionClick" text="Hinzufügen" />
+                        <Button fx:id="readButton" layoutX="321.0" layoutY="31.0" mnemonicParsing="false" onAction="#readFile" text="Button" />
                      </children></AnchorPane>
             </content>
           </Tab>

@@ -10,7 +10,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import database.readFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class Controller {
     public TextField textfield1;
     public TextField textfield2;
     public Button addQuestion;
+    public Button readButton;
     private int counter = 0;
     List<Runde> rundenListe;
 
@@ -191,4 +194,8 @@ public class Controller {
         d.addAntwort(a);
     }
 
+    public void readFile(ActionEvent actionEvent) throws IOException {
+        readFile rf = new readFile();
+        rf.readFile();
+    }
 }
