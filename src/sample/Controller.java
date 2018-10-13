@@ -37,8 +37,8 @@ public class Controller {
         rundenListe = rundenListeErstellen();
         //System.out.println("test" + rundenListe.size());
         setButtonText();
-        System.out.println(rundenListe.get(counter).getRichtigeAntwort());
-        System.out.println(rundenListe.get(counter).getRichtigeAntwort());
+        //System.out.println(rundenListe.get(counter).getRichtigeAntwort());
+        //System.out.println(rundenListe.get(counter).getRichtigeAntwort());
         //counter++;
         button1.setDisable(true);
 
@@ -123,66 +123,74 @@ public class Controller {
 
 
     public void antwort1Click(ActionEvent actionEvent) {
-        if(antwort1.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
-            System.out.println("Richtig");
-            counter++;
-            setButtonText();
+        if(counter < rundenListe.size()) {
+            if (antwort1.getText().equals(rundenListe.get(counter).getRichtigeAntwort())) {
+                System.out.println("Richtig");
+                counter++;
+                setButtonText();
 
-        } else {
-            System.out.println("Falsch");
-            counter++;
-            setButtonText();
+            } else {
+                System.out.println("Falsch");
+                counter++;
+                setButtonText();
+            }
         }
     }
 
     public void antwort2Click(ActionEvent actionEvent) {
-        if(antwort2.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
-            System.out.println("Richtig");
-            counter++;
-            setButtonText();
+        if(counter < rundenListe.size()) {
+            if (antwort2.getText().equals(rundenListe.get(counter).getRichtigeAntwort())) {
+                System.out.println("Richtig");
+                counter++;
+                setButtonText();
 
-        } else {
-            System.out.println("Falsch");
-            counter++;
-            setButtonText();
+            } else {
+                System.out.println("Falsch");
+                counter++;
+                setButtonText();
+            }
         }
     }
 
     public void antwort3Click(ActionEvent actionEvent) {
-        if(antwort3.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
-            System.out.println("Richtig");
-            counter++;
-            setButtonText();
+        if(counter < rundenListe.size()) {
+            if(antwort3.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
+             System.out.println("Richtig");
+             counter++;
+                setButtonText();
 
-        } else {
-            System.out.println("Falsch");
-            counter++;
-            setButtonText();
-
+            } else {
+             System.out.println("Falsch");
+                counter++;
+                setButtonText();
+            }
         }
     }
 
     public void antwort4Click(ActionEvent actionEvent) {
-        if(antwort4.getText().equals(rundenListe.get(counter).getRichtigeAntwort())){
-            System.out.println("Richtig");
-            counter++;
-            setButtonText();
-        } else {
-            System.out.println("Falsch");
-            counter++;
-            setButtonText();
+        if(counter < rundenListe.size()) {
+            if (antwort4.getText().equals(rundenListe.get(counter).getRichtigeAntwort())) {
+                System.out.println("Richtig");
+                counter++;
+                setButtonText();
+            } else {
+                System.out.println("Falsch");
+                counter++;
+                setButtonText();
 
+            }
         }
     }
 
     public void setButtonText(){
 
-        fragenLabel.setText(rundenListe.get(counter).getFrageString());
-
-        antwort1.setText(rundenListe.get(counter).getAlleAntworten()[0]);
-        antwort2.setText(rundenListe.get(counter).getAlleAntworten()[1]);
-        antwort3.setText(rundenListe.get(counter).getAlleAntworten()[2]);
-        antwort4.setText(rundenListe.get(counter).getAlleAntworten()[3]);
+        if(counter < rundenListe.size()) {
+            fragenLabel.setText(rundenListe.get(counter).getFrageString());
+            antwort1.setText(rundenListe.get(counter).getAlleAntworten()[0]);
+            antwort2.setText(rundenListe.get(counter).getAlleAntworten()[1]);
+            antwort3.setText(rundenListe.get(counter).getAlleAntworten()[2]);
+            antwort4.setText(rundenListe.get(counter).getAlleAntworten()[3]);
+        }
     }
 
 
@@ -196,6 +204,17 @@ public class Controller {
 
     public void readFile(ActionEvent actionEvent) throws IOException {
         readFile rf = new readFile();
-        rf.readFile();
+        Database d = new Database();
+        List<Frage> list = rf.readFile();
+        for (int i = 0; i < list.size(); i++) {
+            d.addFrage(list.get(i));
+        }
+        for (int j = 0; j < list.size(); j++) {
+            if(d.checkAntwortAv(list.get(j).getAntwort())==false){
+                d.addAntwort(list.get(j).getAntwort());
+            }
+        }
+
     }
+
 }

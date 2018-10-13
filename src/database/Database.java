@@ -6,6 +6,8 @@ import data.Frage;
 import data.Frage;
 
 import javax.persistence.*;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class Database {
@@ -100,6 +102,29 @@ public class Database {
     }
 
 
+    public boolean checkAntwort(String name){
+        EntityManagerFactory emf =
+                Persistence.createEntityManagerFactory("$objectdb/db/Quotes2.odb");
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Antwort> q1 = em.createQuery("Select q FROM Antwort q where q.antwort = :name", Antwort.class);
+        Antwort a1 = q1.getSingleResult();
+        if(a1 != null){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    public boolean checkAntwortAv(String name) throws IOException{
 
+        try {
+            EntityManagerFactory emf =
+                    Persistence.createEntityManagerFactory("$objectdb/db/Quotes2.odb");
+            EntityManager em = emf.createEntityManager();
+            Antwort a1 = (Antwort) em.createQuery("Select q FROM Antwort q Where q.antwort = :name").setParameter("name", name).getSingleResult();
+        } catch (NoResultException e){
+            return false;
+        }
+      return true;
+    }
 }

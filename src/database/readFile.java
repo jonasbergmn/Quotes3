@@ -12,7 +12,7 @@ public class readFile {
 
         List<Frage> ls = new ArrayList<Frage>();
 
-        FileReader fr = new FileReader("/Users/jonasbergmann/Desktop/test.txt");
+        FileReader fr = new FileReader("C:\\Users\\joebe\\Desktop\\test.txt");
         BufferedReader br = new BufferedReader(fr);
 
         String zeile = "";
@@ -31,7 +31,7 @@ public class readFile {
 
         br.close();
 
-        FileReader fr2 = new FileReader("/Users/jonasbergmann/Desktop/test.txt");
+        FileReader fr2 = new FileReader("C:\\Users\\joebe\\Desktop\\test.txt");
         BufferedReader br2 = new BufferedReader(fr2);
 
         String zeile2 = "";
@@ -62,5 +62,6 @@ public class readFile {
         br2.close();
         return ls;
     }
+
 
 }
