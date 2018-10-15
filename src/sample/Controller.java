@@ -7,9 +7,7 @@ import data.Runde;
 import database.Database;
 import database.fillDb;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import database.readFile;
 
 import java.io.IOException;
@@ -28,6 +26,10 @@ public class Controller {
     public TextField textfield2;
     public Button addQuestion;
     public Button readButton;
+    public Button tableButton;
+    public TableView tableView1;
+    public TableColumn frageColumn;
+    public TableColumn antwortColumn;
     private int counter = 0;
     List<Runde> rundenListe;
 
@@ -217,4 +219,8 @@ public class Controller {
 
     }
 
+    public void tableViewAnzeigen(ActionEvent actionEvent) {
+
+
+    }
 }
